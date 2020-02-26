@@ -6,9 +6,10 @@ import java.util.*;
 
 public class LetsCelebrate {
 
-    final static int goal_trophies=10000;
+//    final static int goal_trophies=10000;
 
     public static void main(String args[]) {
+//        final int goal_trophies = Integer.parseInt(args[0]);
         List<PSTMember> all_members = new ArrayList<>();
         int current_community_trophies = 0;
 
@@ -27,6 +28,6 @@ public class LetsCelebrate {
         }
 
         BBCodeLB bbclb = new BBCodeLB();
-        bbclb.printBBLB(all_members, goal_trophies);
+        bbclb.printBBLB(all_members);
     }
 }
