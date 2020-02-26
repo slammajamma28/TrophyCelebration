@@ -10,7 +10,10 @@ import java.util.List;
 
 public class BBCodeLB {
 
-    public void printBBLB(List<PSTMember> all_members, int goal_trophies) {
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM-dd");
+    String filename = dtf.format(LocalDateTime.now()) + "-lb-bbcode.txt";
+
+    public void printBBLB(List<PSTMember> all_members) {
 
         int current_community_trophies = 0;
 
@@ -19,8 +22,8 @@ public class BBCodeLB {
             current_community_trophies = current_community_trophies + member.getCurrent_trophies();
         }
         System.out.println("TOTAL TROPHIES EARNED IS " + current_community_trophies);
-        float progress = (float)current_community_trophies / goal_trophies;
-        System.out.println("PROGRESS IS " + progress + "%");
+//        float progress = (float)current_community_trophies / goal_trophies;
+//        System.out.println("PROGRESS IS " + progress + "%");
         Comparator<PSTMember> sortByTotal = new Comparator<PSTMember>() {
         @Override
         public int compare(PSTMember o1, PSTMember o2) {
@@ -38,11 +41,12 @@ public class BBCodeLB {
                 writeToLBFile(member.getCurrent_trophies() + " ~ [B]" + member.getPst_name() + "[/B]");
             }
         }
+
+        System.out.println("BBCode Leaderboard located at " + filename);
+
     }
 
     private void writeToLBFile(String line) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM-dd");
-        String filename = "C:\\Users\\Pineapple\\Desktop\\" + dtf.format(LocalDateTime.now()) + "-lb-bbcode.txt";
         File newFile = new File(filename);
         try {
             if (!newFile.exists()) {
