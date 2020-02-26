@@ -20,9 +20,10 @@ public class PSTMember {
         setPst_name(pst);
         setPsn_name(psn);
         setStart_trophies(startTrophies);
-        System.out.println("Pulling info for " + pst + " (" + psn + ")...");
+        System.out.println("Pulling info " +
+                "for " + pst + " (" + psn + ")...");
         pullInfo();
-        printItAll();
+//        printItAll();
     }
 
     private void pullInfo() {
